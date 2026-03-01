@@ -1,4 +1,4 @@
-import BaseCard from "../components/cards/BaseCard";
+import BaseCard from "../components/Cards/BaseCard";
 import { FlaskConical } from "lucide-react";
 
 const benchmarkData = [

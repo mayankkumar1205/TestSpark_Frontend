@@ -6,14 +6,18 @@ import Dashboard from "./pages/Dashboard";
 import QuickTest from "./pages/QuickTest";
 import ComprehensiveTest from "./pages/ComprehensiveTest";
 import EvaluationRuns from "./pages/EvaluationRuns";
-import Login from "./pages/Login";
 import RunDetails from "./pages/RunDetails";
+import Benchmarks from "./pages/Benchmarks";
+import Generator from "./pages/Generator";
+import Settings from "./pages/Settings";
+import Login from "./pages/Login";
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(
     localStorage.getItem("isAuthenticated") === "true"
   );
 
+  // If not logged in → show login page
   if (!isAuthenticated) {
     return <Login onLogin={() => setIsAuthenticated(true)} />;
   }
@@ -21,6 +25,8 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+
+        {/* Dashboard */}
         <Route
           path="/"
           element={
@@ -29,6 +35,8 @@ export default function App() {
             </Layout>
           }
         />
+
+        {/* Quick Test */}
         <Route
           path="/quick-test"
           element={
@@ -37,6 +45,8 @@ export default function App() {
             </Layout>
           }
         />
+
+        {/* Comprehensive Test */}
         <Route
           path="/comprehensive-test"
           element={
@@ -45,6 +55,8 @@ export default function App() {
             </Layout>
           }
         />
+
+        {/* Evaluation Runs */}
         <Route
           path="/runs"
           element={
@@ -53,15 +65,48 @@ export default function App() {
             </Layout>
           }
         />
+
+        {/* Run Details (Dynamic Route) */}
         <Route
-  path="/runs/:id"
-  element={
-    <Layout>
-      <RunDetails />
-    </Layout>
-  }
-/>
+          path="/runs/:id"
+          element={
+            <Layout>
+              <RunDetails />
+            </Layout>
+          }
+        />
+
+        {/* NEW PAGES */}
+        <Route
+          path="/benchmarks"
+          element={
+            <Layout>
+              <Benchmarks />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/generator"
+          element={
+            <Layout>
+              <Generator />
+            </Layout>
+          }
+        />
+
+        <Route
+          path="/settings"
+          element={
+            <Layout>
+              <Settings />
+            </Layout>
+          }
+        />
+
+        {/* Fallback Route */}
         <Route path="*" element={<Navigate to="/" />} />
+
       </Routes>
     </BrowserRouter>
   );

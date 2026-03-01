@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BaseCard from "../components/cards/BaseCard";
+import BaseCard from "../components/Cards/BaseCard";
 import { ChevronDown } from "lucide-react";
 
 export default function Generator() {

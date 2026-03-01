@@ -1,5 +1,5 @@
 import { useState } from "react";
-import BaseCard from "../components/cards/BaseCard";
+import BaseCard from "../components/Cards/BaseCard";
 
 export default function Settings() {
   const [openaiKey, setOpenaiKey] = useState("");
